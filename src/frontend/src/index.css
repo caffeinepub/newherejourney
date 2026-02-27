@@ -8,79 +8,80 @@
   :root {
     --radius: 0.5rem;
 
-    /* Church-friendly palette: warm white, gold, near-black */
-    --background: 0.985 0.005 85;
-    --foreground: 0.13 0.01 30;
+    /* Church palette: white bg, near-black primary, gold accent only */
+    --background: 1 0 0;
+    --foreground: 0.13 0 0;
 
     --card: 1 0 0;
-    --card-foreground: 0.13 0.01 30;
+    --card-foreground: 0.13 0 0;
 
     --popover: 1 0 0;
-    --popover-foreground: 0.13 0.01 30;
+    --popover-foreground: 0.13 0 0;
 
-    /* Gold as primary */
-    --primary: 0.72 0.12 75;
-    --primary-foreground: 0.13 0.01 30;
+    /* Near-black as primary */
+    --primary: 0.13 0 0;
+    --primary-foreground: 0.985 0 0;
 
-    --secondary: 0.96 0.01 80;
-    --secondary-foreground: 0.13 0.01 30;
+    --secondary: 0.96 0 0;
+    --secondary-foreground: 0.13 0 0;
 
-    --muted: 0.95 0.005 80;
-    --muted-foreground: 0.5 0.01 50;
+    --muted: 0.95 0 0;
+    --muted-foreground: 0.5 0 0;
 
-    --accent: 0.94 0.02 80;
-    --accent-foreground: 0.13 0.01 30;
+    /* Gold as accent */
+    --accent: 0.72 0.12 75;
+    --accent-foreground: 0.13 0 0;
 
     --destructive: 0.577 0.245 27.325;
     --destructive-foreground: 0.985 0 0;
 
-    --border: 0.88 0.01 80;
-    --input: 0.88 0.01 80;
+    --border: 0.88 0 0;
+    --input: 0.88 0 0;
     --ring: 0.72 0.12 75;
 
-    /* Gold chart colors */
+    /* Chart colors */
     --chart-1: 0.72 0.12 75;
-    --chart-2: 0.65 0.1 200;
-    --chart-3: 0.55 0.08 150;
-    --chart-4: 0.8 0.1 60;
-    --chart-5: 0.6 0.15 30;
+    --chart-2: 0.45 0 0;
+    --chart-3: 0.55 0 0;
+    --chart-4: 0.65 0 0;
+    --chart-5: 0.35 0 0;
 
-    --sidebar: 0.13 0.01 30;
-    --sidebar-foreground: 0.95 0.005 80;
+    --sidebar: 0.13 0 0;
+    --sidebar-foreground: 0.95 0 0;
     --sidebar-primary: 0.72 0.12 75;
-    --sidebar-primary-foreground: 0.13 0.01 30;
-    --sidebar-accent: 0.2 0.01 30;
-    --sidebar-accent-foreground: 0.95 0.005 80;
-    --sidebar-border: 0.22 0.01 30;
+    --sidebar-primary-foreground: 0.13 0 0;
+    --sidebar-accent: 0.2 0 0;
+    --sidebar-accent-foreground: 0.95 0 0;
+    --sidebar-border: 0.22 0 0;
     --sidebar-ring: 0.72 0.12 75;
   }
 
   .dark {
-    --background: 0.13 0.01 30;
-    --foreground: 0.95 0.005 80;
-    --card: 0.18 0.01 30;
-    --card-foreground: 0.95 0.005 80;
-    --popover: 0.18 0.01 30;
-    --popover-foreground: 0.95 0.005 80;
-    --primary: 0.72 0.12 75;
-    --primary-foreground: 0.13 0.01 30;
-    --secondary: 0.22 0.01 30;
-    --secondary-foreground: 0.95 0.005 80;
-    --muted: 0.22 0.01 30;
-    --muted-foreground: 0.65 0.01 50;
-    --accent: 0.25 0.01 30;
-    --accent-foreground: 0.95 0.005 80;
+    --background: 0.13 0 0;
+    --foreground: 0.95 0 0;
+    --card: 0.18 0 0;
+    --card-foreground: 0.95 0 0;
+    --popover: 0.18 0 0;
+    --popover-foreground: 0.95 0 0;
+    --primary: 0.95 0 0;
+    --primary-foreground: 0.13 0 0;
+    --secondary: 0.22 0 0;
+    --secondary-foreground: 0.95 0 0;
+    --muted: 0.22 0 0;
+    --muted-foreground: 0.65 0 0;
+    --accent: 0.72 0.12 75;
+    --accent-foreground: 0.13 0 0;
     --destructive: 0.704 0.191 22.216;
     --destructive-foreground: 0.985 0 0;
     --border: 1 0 0 / 10%;
     --input: 1 0 0 / 15%;
     --ring: 0.72 0.12 75;
-    --sidebar: 0.1 0.01 30;
-    --sidebar-foreground: 0.95 0.005 80;
+    --sidebar: 0.1 0 0;
+    --sidebar-foreground: 0.95 0 0;
     --sidebar-primary: 0.72 0.12 75;
-    --sidebar-primary-foreground: 0.13 0.01 30;
-    --sidebar-accent: 0.18 0.01 30;
-    --sidebar-accent-foreground: 0.95 0.005 80;
+    --sidebar-primary-foreground: 0.13 0 0;
+    --sidebar-accent: 0.18 0 0;
+    --sidebar-accent-foreground: 0.95 0 0;
     --sidebar-border: 1 0 0 / 10%;
     --sidebar-ring: 0.72 0.12 75;
   }
