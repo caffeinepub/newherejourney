@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from '@tanstack/react-router';
 import { useRegisterGuest, useListAllChurches } from '../../hooks/useQueries';
+import { useActor } from '../../hooks/useActor';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -16,6 +17,7 @@ const INTERESTS = ['Worship', 'Small Groups', 'Volunteering', 'Youth Ministry', 
 export default function WelcomePage() {
   const navigate = useNavigate();
   const registerGuest = useRegisterGuest();
+  const { actor, isFetching: actorFetching } = useActor();
   const { data: churches, isLoading: churchesLoading } = useListAllChurches();
 
   const [name, setName] = useState('');
@@ -66,8 +68,10 @@ export default function WelcomePage() {
     }
   };
 
-  const showChurchPicker = !churchesLoading && churches && churches.length >= 1;
-  const singleChurch = null; // always show church picker explicitly
+  // Show loading while actor or churches are initializing
+  const isLoadingChurches = actorFetching || !actor || churchesLoading;
+  const hasChurches = !isLoadingChurches && churches && churches.length > 0;
+  const noChurches = !isLoadingChurches && (!churches || churches.length === 0);
 
   const year = new Date().getFullYear();
   const appId = encodeURIComponent(window.location.hostname || 'newherejourney');
@@ -89,34 +93,33 @@ export default function WelcomePage() {
             </>
           </CardHeader>
           <CardContent>
-            {churchesLoading ? (
+            {isLoadingChurches ? (
               <div className="flex items-center justify-center py-8">
                 <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
+                <span className="ml-2 text-sm text-muted-foreground">Loading churches...</span>
               </div>
-            ) : churches && churches.length === 0 ? (
+            ) : noChurches ? (
               <div className="text-center py-8 text-muted-foreground">
                 <p className="text-sm">No churches have been set up yet. Please check back later.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
-                {/* Church picker — only shown when multiple churches exist */}
-                {showChurchPicker && (
-                  <div className="space-y-2">
-                    <Label htmlFor="church">Select Your Church *</Label>
-                    <Select value={selectedChurchId} onValueChange={setSelectedChurchId}>
-                      <SelectTrigger id="church">
-                        <SelectValue placeholder="Choose a church..." />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {churches!.map(church => (
-                          <SelectItem key={church.id} value={church.id}>
-                            {church.name}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-                )}
+                {/* Church picker — always shown */}
+                <div className="space-y-2">
+                  <Label htmlFor="church">Select Your Church *</Label>
+                  <Select value={selectedChurchId} onValueChange={setSelectedChurchId}>
+                    <SelectTrigger id="church">
+                      <SelectValue placeholder="Choose a church..." />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {(churches || []).map(church => (
+                        <SelectItem key={church.id} value={church.id}>
+                          {church.name}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="name">Your Name *</Label>
